@@ -22,6 +22,13 @@ public class ZombieScript : MonoBehaviour {
   }
 
 
+  void Update() 
+  {
+    goal = Camera.main.transform;
+    agent.destination = goal.position;
+  }
+
+
   //for this to work both need colliders, one must have rigid body, and the zombie must have is trigger checked.
   void OnTriggerEnter (Collider col)
   {

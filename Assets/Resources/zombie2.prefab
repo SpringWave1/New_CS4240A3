@@ -392,7 +392,7 @@ Animation:
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
-  m_CullingType: 1
+  m_CullingType: 0
 --- !u!136 &9219954316350540545
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -403,10 +403,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.18693069
-  m_Height: 0.89575005
+  m_Radius: 0.26150846
+  m_Height: 1.0133934
   m_Direction: 1
-  m_Center: {x: -0.0015442669, y: 1.381644, z: 0}
+  m_Center: {x: -0.0015442669, y: 1.7606633, z: 0.07457781}
 --- !u!195 &9219954316350540607
 NavMeshAgent:
   m_ObjectHideFlags: 0
