@@ -1,0 +1,11 @@
+
+[Ll]ogs/
+[Pp]ackages/
+[Uu]serSettings/
+.vscode/
+[Tt]emp/
+[Ll]ibrary/
+Assets/AssetStoreTools*
+
+*.csproj
+*.sln
