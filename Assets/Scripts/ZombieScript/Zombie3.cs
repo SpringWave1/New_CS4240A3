@@ -52,8 +52,15 @@ public class Zombie3 : MonoBehaviour {
       animation.Stop ();
       animation.Play ("Z_FallingBack");
       died = true;
+
+      //instantiate a blood
+      GameObject blood = Instantiate(Resources.Load("blood", typeof(GameObject))) as GameObject;
+      blood.transform.position = gameObject.transform.position;
+
       //destroy this zombie in six seconds.
       Destroy (gameObject, 6);
+      Destroy (blood, 6);
+      
       //instantiate a new zombie
       GameObject zombie = Instantiate(Resources.Load("zombie3", typeof(GameObject))) as GameObject;
 
