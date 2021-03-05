@@ -7,11 +7,13 @@ public class Zombie3 : MonoBehaviour {
   private Transform goal;
   private UnityEngine.AI.NavMeshAgent agent;
   private Animation animation;
+  private bool died;
 
   // Use this for initialization
   void Start () {
   
     //create references
+    died = false;
     goal = Camera.main.transform;
     agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
     animation = GetComponent<Animation>();
@@ -24,7 +26,13 @@ public class Zombie3 : MonoBehaviour {
 
   void Update() 
   {
-    goal = Camera.main.transform;
+    if (!died) {
+      goal = Camera.main.transform;
+    }
+    else
+    {
+      goal = agent.transform;
+    }
     agent.destination = goal.position;
   }
 
@@ -41,6 +49,7 @@ public class Zombie3 : MonoBehaviour {
     //stop the walking animation and play the falling back animation
     animation.Stop ();
     animation.Play ("Z_FallingBack");
+    died = true;
     //destroy this zombie in six seconds.
     Destroy (gameObject, 6);
     //instantiate a new zombie

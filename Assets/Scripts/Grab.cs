@@ -8,15 +8,16 @@ public class Grab : MonoBehaviour
     public string buttonName;
     public float grabRadius;
     public LayerMask grabMask;
+    public bool grabbing;
 
     private GameObject grabbedObject;
-    private bool grabbing;
+    
     
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        grabbing = false;
     }
 
     // Update is called once per frame
