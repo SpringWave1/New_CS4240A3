@@ -55,6 +55,8 @@ public class Grab : MonoBehaviour
             }
 
             grabbedObject = hits[closestHit].transform.gameObject;
+            GetComponent<AudioSource>().Play();
+            
             if(grabbedObject.GetComponent<ShootScript>().gunGrabbing != null){
                 grabbedObject.GetComponent<ShootScript>().gunGrabbing = true;
             }
@@ -74,6 +76,8 @@ public class Grab : MonoBehaviour
             if(grabbedObject.GetComponent<ShootScript>().gunGrabbing != null){
                 grabbedObject.GetComponent<ShootScript>().gunGrabbing = false;
             }
+
+            GetComponent<AudioSource>().Play();
             grabbedObject.transform.parent = null;
             grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
 

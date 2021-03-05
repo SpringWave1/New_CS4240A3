@@ -70,6 +70,7 @@ public class Zombie3 : MonoBehaviour {
       //stop the zombie from moving forward by setting its destination to it's current position
       agent.destination = gameObject.transform.position;
       //stop the walking animation and play the falling back animation
+      GetComponent<AudioSource>().Play ();
       animation.Stop ();
       animation.Play ("Z_FallingBack");
       died = true;
