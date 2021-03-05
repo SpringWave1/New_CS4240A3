@@ -55,8 +55,12 @@ public class Grab : MonoBehaviour
             }
 
             grabbedObject = hits[closestHit].transform.gameObject;
+            if(grabbedObject.GetComponent<ShootScript>().gunGrabbing != null){
+                grabbedObject.GetComponent<ShootScript>().gunGrabbing = true;
+            }
             grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
             grabbedObject.transform.position = transform.position;
+            grabbedObject.transform.rotation = transform.rotation;
             grabbedObject.transform.parent = transform;
         }
     }
@@ -67,6 +71,9 @@ public class Grab : MonoBehaviour
 
         if ( grabbedObject != null)
         {
+            if(grabbedObject.GetComponent<ShootScript>().gunGrabbing != null){
+                grabbedObject.GetComponent<ShootScript>().gunGrabbing = false;
+            }
             grabbedObject.transform.parent = null;
             grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
 
