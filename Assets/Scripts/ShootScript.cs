@@ -29,20 +29,19 @@ public class ShootScript : MonoBehaviour
         isShooting = true;
 
         //instantiate the bullet
-        GameObject bullet = Instantiate(Resources.Load("Bullet1", typeof(GameObject))) as GameObject;
+        GameObject bullet = Instantiate(Resources.Load("Bullet2", typeof(GameObject))) as GameObject;
         //Get the bullet's rigid body component and set its position and rotation equal to that of the shootPoint
         bullet.layer = 0;
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        // bullet.transform.rotation = shootPoint.transform.rotation;
-        bullet.transform.rotation = new Quaternion(shootPoint.transform.rotation.x, shootPoint.transform.rotation.y, shootPoint.transform.rotation.z + 0.25f, shootPoint.transform.rotation.w);
+        bullet.transform.rotation = shootPoint.transform.rotation;
         bullet.transform.position = shootPoint.transform.position;
         //add force to the bullet
-        rb.AddForce(bullet.transform.forward * 2100f);
+        rb.AddForce(shootPoint.transform.forward * 2100f);
         //play the gun shot sound and gun animation
         // GetComponent<AudioSource>().Play ();
         GetComponent<Animation>().Play ();
         //destroy the bullet after 1 second
-        Destroy (bullet, 2);
+        Destroy (bullet, 1);
         // //wait for 1 second and set isShooting to false so we can shoot again
         yield return new WaitForSeconds (0.3f);
         isShooting = false;

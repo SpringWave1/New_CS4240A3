@@ -38,6 +38,15 @@ public class Zombie3 : MonoBehaviour {
       goal = agent.transform;
     }
     agent.destination = goal.position;
+
+    // attack
+    if (!died && Vector3.Distance (agent.transform.position, Camera.main.transform.position) <= 3.1f) {
+      animation.Play ("Z_Attack"); 
+    } 
+    if (!died && Vector3.Distance (agent.transform.position, Camera.main.transform.position) >= 3.2f) {
+      animation.Play ("Z_Run_InPlace"); 
+    }
+
   }
 
   void UpdateScore()
@@ -78,9 +87,9 @@ public class Zombie3 : MonoBehaviour {
       GameObject zombie = Instantiate(Resources.Load("zombie3", typeof(GameObject))) as GameObject;
 
       //set the coordinates for a new vector 3
-      float randomX = UnityEngine.Random.Range (-12f,12f);
+      float randomX = UnityEngine.Random.Range (-12f,52f);
       float constantY = .01f;
-      float randomZ = UnityEngine.Random.Range (-13f,13f);
+      float randomZ = UnityEngine.Random.Range (-22f,32f);
       //set the zombies position equal to these new coordinates
       zombie.transform.position = new Vector3 (randomX, constantY, randomZ);
 
@@ -88,8 +97,8 @@ public class Zombie3 : MonoBehaviour {
       //so keep repositioning the zombie until it is greater than 3 scene units away. 
       while (Vector3.Distance (zombie.transform.position, Camera.main.transform.position) <= 3) {
         
-        randomX = UnityEngine.Random.Range (-12f,12f);
-        randomZ = UnityEngine.Random.Range (-13f,13f);
+        randomX = UnityEngine.Random.Range (-12f,52f);
+        randomZ = UnityEngine.Random.Range (-22f,32f);
 
         zombie.transform.position = new Vector3 (randomX, constantY, randomZ);
       }
