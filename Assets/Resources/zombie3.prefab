@@ -1689,6 +1689,7 @@ Animation:
   m_Animations:
   - {fileID: -6257440219318784398, guid: 79969b20b5ba62e499ee433a4dd38701, type: 3}
   - {fileID: 1827226128182048838, guid: 857241dcf6bb2ea45a0b3f46d78f44b5, type: 3}
+  - {fileID: -6257440219318784398, guid: 631762b9a30b33a42836730a6b37d13f, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -1719,6 +1720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfa3efc268cccd4fb61fc11a37d27f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreText: {fileID: 0}
 --- !u!195 &2535535316900551517
 NavMeshAgent:
   m_ObjectHideFlags: 0

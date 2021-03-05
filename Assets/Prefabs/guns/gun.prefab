@@ -108,7 +108,6 @@ GameObject:
   - component: {fileID: 363724987594583477}
   - component: {fileID: 363724987596625522}
   - component: {fileID: 363724987596625533}
-  - component: {fileID: 363724987596625521}
   - component: {fileID: 363724987596625526}
   - component: {fileID: 363724987596625532}
   m_Layer: 6
@@ -211,22 +210,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.07549844, y: 0.31807208, z: 0.832286}
   m_Center: {x: 0.00000003822341, y: 0.022800067, z: 0.27416432}
---- !u!111 &363724987596625521
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 363724987596756293}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: aa8e8676ae31a934999f6c8538a29ac3, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: aa8e8676ae31a934999f6c8538a29ac3, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 1
 --- !u!82 &363724987596625526
 AudioSource:
   m_ObjectHideFlags: 0
