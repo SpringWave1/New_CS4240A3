@@ -8,8 +8,8 @@ public class Grab : MonoBehaviour
     public string buttonName;
     public float grabRadius;
     public LayerMask grabMask;
-    public bool grabbing;
 
+    public bool grabbing;
     private GameObject grabbedObject;
     
     

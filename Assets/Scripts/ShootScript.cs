@@ -19,6 +19,7 @@ public class ShootScript : MonoBehaviour
     void Start () {
         shootPoint = transform.GetChild(0).gameObject;
         //set isShooting bool to default as false
+        rightHand =  GameObject.Find("CustomHandRight");
         isShooting = false;
         gunGrabbing = false;
     }
@@ -38,8 +39,7 @@ public class ShootScript : MonoBehaviour
         //add force to the bullet
         rb.AddForce(shootPoint.transform.forward * 2100f);
         //play the gun shot sound and gun animation
-        // GetComponent<AudioSource>().Play ();
-        GetComponent<Animation>().Play ();
+        GetComponent<AudioSource>().Play ();
         //destroy the bullet after 1 second
         Destroy (bullet, 1);
         // //wait for 1 second and set isShooting to false so we can shoot again
