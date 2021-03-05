@@ -4,10 +4,14 @@ using System.Collections;
 
 public class Zombie3 : MonoBehaviour {
   //declare the transform of our goal (where the navmesh agent will move towards) and our navmesh agent (in this case our zombie)
+  public GameObject ScoreText;
+
   private Transform goal;
   private UnityEngine.AI.NavMeshAgent agent;
   private Animation animation;
   private bool died;
+
+  private ScoreSc scriptSc;
 
   // Use this for initialization
   void Start () {
@@ -36,6 +40,14 @@ public class Zombie3 : MonoBehaviour {
     agent.destination = goal.position;
   }
 
+  void UpdateScore()
+  {
+    ScoreText =  GameObject.Find("ScoreValue");
+    // ui, score
+    scriptSc = ScoreText.GetComponent<ScoreSc>();
+    scriptSc.scoreValue += 5;
+  }
+
 
   //for this to work both need colliders, one must have rigid body, and the zombie must have is trigger checked.
   void OnTriggerEnter (Collider col)
@@ -60,7 +72,8 @@ public class Zombie3 : MonoBehaviour {
       //destroy this zombie in six seconds.
       Destroy (gameObject, 6);
       Destroy (blood, 6);
-      
+      // update score
+      UpdateScore();
       //instantiate a new zombie
       GameObject zombie = Instantiate(Resources.Load("zombie3", typeof(GameObject))) as GameObject;
 
