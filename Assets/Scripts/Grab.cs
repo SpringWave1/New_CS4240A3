@@ -8,12 +8,10 @@ public class Grab : MonoBehaviour
     public string buttonName;
     public float grabRadius;
     public LayerMask grabMask;
-
     public bool grabbing;
     private GameObject grabbedObject;
     
     
-
     // Start is called before the first frame update
     void Start()
     {
@@ -62,7 +60,7 @@ public class Grab : MonoBehaviour
             }
             grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
             grabbedObject.transform.position = transform.position;
-            grabbedObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.x, gameObject.transform.rotation.y, gameObject.transform.rotation.z);
+            grabbedObject.transform.rotation = OVRInput.GetLocalControllerRotation(Controller);
             grabbedObject.transform.parent = transform;
         }
     }
