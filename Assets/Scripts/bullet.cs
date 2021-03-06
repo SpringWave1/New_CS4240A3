@@ -17,8 +17,11 @@ public class bullet : MonoBehaviour
     }
 
     // destroy bullet if collised
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision col)
     {
-        Destroy(this.gameObject);
+        if(col.gameObject.CompareTag("goods"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
