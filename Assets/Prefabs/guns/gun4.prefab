@@ -320,5 +320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: 64
   buttonName: Right Shoot
+  gunPower: 2100
+  muzzleFlashPrefab: {fileID: 1782395880954752, guid: 3dd9cf2e209c504448f1c4c6835675cf, type: 3}
   rightHand: {fileID: 0}
   gunGrabbing: 0

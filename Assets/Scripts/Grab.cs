@@ -18,6 +18,7 @@ public class Grab : MonoBehaviour
         grabbing = false;
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -31,6 +32,8 @@ public class Grab : MonoBehaviour
         }
     }
 
+
+    // grab object
     void GrabObject()
     {
         grabbing = true;
@@ -65,6 +68,8 @@ public class Grab : MonoBehaviour
         }
     }
 
+
+    // drop object
     void DropObject()
     {
         grabbing = false;
