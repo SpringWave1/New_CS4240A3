@@ -62,7 +62,7 @@ public class Grab : MonoBehaviour
             }
             grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
             grabbedObject.transform.position = transform.position;
-            grabbedObject.transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z + 0.375f, transform.rotation.w);
+            grabbedObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.x, gameObject.transform.rotation.y, gameObject.transform.rotation.z);
             grabbedObject.transform.parent = transform;
         }
     }

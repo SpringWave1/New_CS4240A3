@@ -390,6 +390,7 @@ Animation:
   m_Animations:
   - {fileID: -6257440219318784398, guid: 3fa7045af54b82c47852949257d136c7, type: 3}
   - {fileID: 1827226128182048838, guid: 857241dcf6bb2ea45a0b3f46d78f44b5, type: 3}
+  - {fileID: -6257440219318784398, guid: 631762b9a30b33a42836730a6b37d13f, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -402,12 +403,12 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 923860863715895786}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.26150846
-  m_Height: 1.0133934
+  m_Radius: 0.22682571
+  m_Height: 1.056107
   m_Direction: 1
-  m_Center: {x: -0.0015442669, y: 1.7606633, z: 0.07457781}
+  m_Center: {x: 0.0015602112, y: 1.2835913, z: 0.07457781}
 --- !u!195 &9219954316350540607
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -418,7 +419,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1.2
+  m_Speed: 0.8
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -454,7 +455,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 10c5091abba064562a8ea4a34b5cb908, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
