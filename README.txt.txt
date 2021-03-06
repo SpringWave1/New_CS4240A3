@@ -1,7 +1,9 @@
 BEFORE STARTING THE GAME:
 If the materials of the scene are all pink/not rendered, go to: 
 Window > Package Manager, select Unity Registry from the packages dropdown, find
-the "Universal RP" package and import  
+the "Universal RP" package and import. Then, go to: Edit > Render Pipeline,
+click Universal Render Pipeline, click Upgrade Project Materials to UniversalRP
+Materials. Everything will be fine then.
 
 Our Game: The Running Dead
 Inspired by the popular L4D zombie apocalypse survival FPS series,
@@ -22,20 +24,20 @@ Controls:
       moving forward, backwards, left and right
     - Turn your body to change the direction that you are facing accordingly
 
-2. Teleporting
+2. Teleporting (left hand)
     - Press and hold the 9th axis to show the teleportation indicator
     - If the indicator is blue, the location that the indicator lands on
       can be teleported to. Otherwise if it is red, re-adjust your aim and find
       a teleportable location
     - Release the 9th axis to teleport to the location that the indicator points to 
 
-3. Picking up/Dropping weapons
+3. Picking up/Dropping weapons (right hand)
     - Move towards the weapon that you want to pick up (make sure you are close enough)
     - Reach your right hand (holding the controller) towards the weapon 
-    - Press and hold the 12th axis to grab the weapon
+    - Press and hold the 12th axis to grab the weapon  
     - Release your hold on the 12th axis while a weapon is in your (right) hand to drop it
 
-4. Shooting    
+4. Shooting (right hand)
     - With a weapon in your (right) hand, point it towards your target and press
       the 10th axis to fire your weapon
 
