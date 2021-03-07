@@ -7752,14 +7752,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!81 &647727731
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 647727728}
-  m_Enabled: 1
 --- !u!114 &647727732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24074,7 +24066,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 128
-  angle: 45
+  angle: 40
   strength: 10
   groundDetected: 0
 --- !u!114 &1939461694
@@ -24111,8 +24103,8 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f1d1df5b79f7fff489b3985910809961, type: 2}
-  - {fileID: 2100000, guid: f1d1df5b79f7fff489b3985910809961, type: 2}
+  - {fileID: 2100000, guid: af6a038283f11064096a31d10a21fe2f, type: 2}
+  - {fileID: 2100000, guid: 441f2f09c2ab6174880ed6bb76d64bf8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
