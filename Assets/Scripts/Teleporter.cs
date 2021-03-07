@@ -38,14 +38,6 @@ public class Teleporter : MonoBehaviour
     // Teleport target transform to ground position
     public void Teleport()
     {
-        
-       
-        // characterController.enabled = false;
-        // if (groundDetected)
-        // {
-        //     characterController.transform.position = positionMarker.transform.position;
-        // }
-        // characterController.enabled = true;
 
         if (groundDetected) {
             Quaternion rot = positionMarker.transform.rotation;
@@ -72,16 +64,7 @@ public class Teleporter : MonoBehaviour
         Vector3 destPosition = position;
         destPosition.y = 2.3f;
         Quaternion destRotation = rotation;// destTransform.rotation;
-// #if false
-// 		Quaternion destRotation = destTransform.rotation;
-
-// 		//Debug.Log("Rots: " + destRotation + " " + destTransform.rotation * Quaternion.Euler(0, -LocomotionController.CameraRig.trackingSpace.localEulerAngles.y, 0));
-
-// 		destRotation = destRotation * Quaternion.Euler(0, -LocomotionController.CameraRig.trackingSpace.localEulerAngles.y, 0);
-// #endif
-
         characterTransform.position = destPosition;
-        // characterTransform.rotation = destRotation;
 
         Debug.Log("destPosition: " + destPosition + "  destRotation: " + destRotation);
 
@@ -115,11 +98,9 @@ public class Teleporter : MonoBehaviour
 
         vertexList.Clear(); // delete all previouse vertices
 
-
         velocity = Quaternion.AngleAxis(-angle, transform.right) * transform.forward * strength;
 
         RaycastHit hit;
-
 
         Vector3 pos = transform.position; // take off position
 
@@ -151,8 +132,9 @@ public class Teleporter : MonoBehaviour
         {
             positionMarker.transform.position = groundPos + lastNormal * 0.1f;
             positionMarker.transform.LookAt(groundPos);
+            
         }
-
+        
         // Update Line Renderer
 
         arcRenderer.positionCount = vertexList.Count;
