@@ -4,82 +4,28 @@ using UnityEngine;
 
 public class Teleporter : MonoBehaviour
 {
-
-    public GameObject positionMarker; // marker for display ground position
-
+    public GameObject marker; 
     public LocomotionController LocomotionController {get; private set;}
-
-    public LayerMask layerMask; // excluding for performance
-
-    public float angle = 45f; // Arc take off angle
-
-    public float strength = 10f; // Increasing this value will increase overall arc length
-
-
-    int maxVertexcount = 100; // limitation of vertices for performance. 
-
-    private float vertexDelta = 0.08f; // Delta between each Vertex on arc. Decresing this value may cause performance problem.
-
-    private LineRenderer arcRenderer;
-
-    private Vector3 velocity; // Velocity of latest vertex
-
-    private Vector3 groundPos; // detected ground position
-
-    private Vector3 lastNormal; // detected surface normal
-
-    public bool groundDetected = false;
-
-    private List<Vector3> vertexList = new List<Vector3>(); // vertex on arc
-
+    public LayerMask layerMask;
+    public float angle = 45f; 
+    public float strength = 10f; // ray length
+    private int maxCount = 100; 
+    private float delta = 0.08f;
+    private LineRenderer lineRenderer;
+    private Vector3 velocity; 
+    private Vector3 groundPos; 
+    private Vector3 lastNormal; 
+    private List<Vector3> pointList = new List<Vector3>(); 
     private bool displayActive = false; // don't update path when it's false.
 
-
-    // Teleport target transform to ground position
-    public void Teleport()
-    {
-
-        if (groundDetected) {
-            Quaternion rot = positionMarker.transform.rotation;
-            Vector3 pos = positionMarker.transform.position;
-
-            DoTeleport(rot, pos);
-        }
-    }
-
-    // Active Teleporter Arc Path
-    public void ToggleDisplay(bool active)
-    {
-        arcRenderer.enabled = active;
-        positionMarker.SetActive(active);
-        displayActive = active;
-    }
-
-    public void DoTeleport(Quaternion rotation, Vector3 position)
-    {
-        var character = LocomotionController.CharacterController;
-        character.enabled = false;
-        var characterTransform = character.transform;
-
-        Vector3 destPosition = position;
-        destPosition.y = 2.3f;
-        Quaternion destRotation = rotation;// destTransform.rotation;
-        characterTransform.position = destPosition;
-
-        Debug.Log("destPosition: " + destPosition + "  destRotation: " + destRotation);
-
-        character.enabled = true;
-    }
-
-
-
+    public bool groundDetected = false;
 
 
     private void Awake()
     {
-        arcRenderer = GetComponent<LineRenderer>();
-        arcRenderer.enabled = false;
-        positionMarker.SetActive(false);
+        lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.enabled = false;
+        marker.SetActive(false);
         LocomotionController = GetComponent<LocomotionController>();
     }
 
@@ -92,54 +38,88 @@ public class Teleporter : MonoBehaviour
     }
 
 
+    // Update ray path
     private void UpdatePath()
     {
         groundDetected = false;
-
-        vertexList.Clear(); // delete all previouse vertices
-
+        pointList.Clear(); // delete all previous points
         velocity = Quaternion.AngleAxis(-angle, transform.right) * transform.forward * strength;
 
         RaycastHit hit;
-
         Vector3 pos = transform.position; // take off position
+        pointList.Add(pos);
 
-        vertexList.Add(pos);
-
-        while (!groundDetected && vertexList.Count < maxVertexcount)
+        while (!groundDetected && pointList.Count < maxCount)
         {
-            Vector3 newPos = pos + velocity * vertexDelta
-                + 0.5f * Physics.gravity * vertexDelta * vertexDelta;
+            Vector3 newPos = pos + velocity * delta + 0.5f * Physics.gravity * delta * delta;
+            velocity += Physics.gravity * delta;
+            pointList.Add(newPos); 
 
-            velocity += Physics.gravity * vertexDelta;
-
-            vertexList.Add(newPos); // add new calculated vertex
-
-            // linecast between last vertex and current vertex
+            // linecast between last point and current point
             if (Physics.Linecast(pos, newPos, out hit, layerMask))
             {
                 groundDetected = true;
                 groundPos = hit.point;
                 lastNormal = hit.normal;
             }
-            pos = newPos; // update current vertex as last vertex
+            pos = newPos; 
         }
 
+        marker.SetActive(groundDetected);
 
-        positionMarker.SetActive(groundDetected);
-
+        // add marker
         if (groundDetected)
         {
-            positionMarker.transform.position = groundPos + lastNormal * 0.1f;
-            positionMarker.transform.LookAt(groundPos);
+            marker.transform.position = groundPos + lastNormal * 0.1f;
+            marker.transform.LookAt(groundPos);
             
         }
         
         // Update Line Renderer
-
-        arcRenderer.positionCount = vertexList.Count;
-        arcRenderer.SetPositions(vertexList.ToArray());
+        lineRenderer.positionCount = pointList.Count;
+        lineRenderer.SetPositions(pointList.ToArray());
     }
+
+
+    // Teleport target transform to ground position
+    public void Teleport()
+    {
+        if (groundDetected) {
+            Quaternion rot = marker.transform.rotation;
+            Vector3 pos = marker.transform.position;
+
+            DoTeleport(rot, pos);
+        }
+    }
+
+
+    // Active teleporter path
+    public void ToggleDisplay(bool active)
+    {
+        lineRenderer.enabled = active;
+        marker.SetActive(active);
+        displayActive = active;
+    }
+
+    // Main teleport function
+    public void DoTeleport(Quaternion rotation, Vector3 position)
+    {
+        var character = LocomotionController.CharacterController;
+        character.enabled = false;
+        var characterTransform = character.transform;
+
+        Vector3 destPosition = position;
+        destPosition.y = 2.3f;
+        Quaternion destRotation = rotation;
+        characterTransform.position = destPosition;
+
+        character.enabled = true;
+    }
+
+
+
+
+    
 
 
 }

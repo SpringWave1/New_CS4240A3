@@ -17,12 +17,12 @@ public class Teleporting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
+        if (OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger))
         {
             teleporter.ToggleDisplay(true);
         }
 
-        if(OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger))
+        if(OVRInput.GetUp(OVRInput.RawButton.LIndexTrigger))
         {
             
             teleporter.ToggleDisplay(false);

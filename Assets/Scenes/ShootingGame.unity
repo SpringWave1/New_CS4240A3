@@ -9010,6 +9010,10 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11434164, guid: ba1fa4a8c66106b4988c88fe4b8e8502, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 11477634, guid: ba1fa4a8c66106b4988c88fe4b8e8502, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -9020,7 +9024,7 @@ PrefabInstance:
       objectReference: {fileID: 749162913}
     - target: {fileID: 11477634, guid: ba1fa4a8c66106b4988c88fe4b8e8502, type: 3}
       propertyPath: m_grabVolumes.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11477634, guid: ba1fa4a8c66106b4988c88fe4b8e8502, type: 3}
       propertyPath: m_grabVolumes.Array.data[0]
@@ -9030,7 +9034,8 @@ PrefabInstance:
       propertyPath: m_grabVolumes.Array.data[1]
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11477634, guid: ba1fa4a8c66106b4988c88fe4b8e8502, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ba1fa4a8c66106b4988c88fe4b8e8502, type: 3}
 --- !u!4 &749162913 stripped
 Transform:
@@ -9176,8 +9181,8 @@ MonoBehaviour:
   m_gripTransform: {fileID: 0}
   m_grabVolumes: []
   m_controller: 0
-  m_parentTransform: {fileID: 0}
-  m_player: {fileID: 0}
+  m_parentTransform: {fileID: 1514071072}
+  m_player: {fileID: 647727728}
   m_spherecastRadius: 0
   m_noSnapThreshhold: 0.05
   m_useSpherecast: 0
@@ -11766,7 +11771,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000013141257940, guid: 1b474618c4fc5f54e8a8b803c8352c7d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1b474618c4fc5f54e8a8b803c8352c7d, type: 3}
 --- !u!1 &974141268
 GameObject:
@@ -23891,7 +23897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0354b2d22cb69fc4ea7a42815147e0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionMarker: {fileID: 1229862573}
+  marker: {fileID: 1229862573}
   layerMask:
     serializedVersion: 2
     m_Bits: 128
